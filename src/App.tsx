@@ -48,8 +48,6 @@ function App() {
           income={income}
           expense={expense}
         />
-      </div>
-      <div>
         InputArea
       </div>
       <div>
