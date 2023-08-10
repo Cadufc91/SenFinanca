@@ -1,0 +1,46 @@
+.inputAreaContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 150px;
+    gap: 5px;
+}
+
+.itemContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.itemContainer label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.itemContainer input,
+.itemContainer select {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 5px 12px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.itemContainer input:focus,
+.itemContainer select:focus {
+    box-shadow:  0 0 4px rgba(13,110,253,0.25);
+    border-color: #86b7fe;
+    outline: 0;
+}
+
+.addButton {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 5px;
+    width: 50%;
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    background-color: #86b7fe;
+    color: white;
+}

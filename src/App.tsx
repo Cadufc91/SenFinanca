@@ -5,6 +5,7 @@ import { Item } from './types/item';
 import { items } from './data/items';
 import { filterListByMonth, getCurrentMonth } from './helpers/dateFilter';
 import { categories } from './data/categories';
+import InputArea from './components/InputArea/InputArea';
 
 function App() {
   const [list, setList] = useState(items);
@@ -37,18 +38,23 @@ function App() {
     setCurrentMonth(newMonth);
   }
 
+  const handleAddItem = (item: Item) => {
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  }
 
   return (
     <div className="App">
       <h1>SenFinanças</h1>
-      <div>
+      <div className="overviewArea">
         <InfoArea
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
           income={income}
           expense={expense}
         />
-        InputArea
+        <InputArea onAdd={handleAddItem} />
       </div>
       <div>
         TableArea

@@ -1,10 +1,9 @@
 .infoAreaContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 30px;
-    margin: 30px 0;
+    justify-content: space-between;
     width: 15vw;
+    height: 150px;
 }
 
 .monthControl {
