@@ -1,9 +1,13 @@
 .inputAreaContainer {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 150px;
     gap: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    height: 200px;
+    width: 300px;
+    justify-content: center;
 }
 
 .itemContainer {
@@ -35,12 +39,13 @@
 .addButton {
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-self: flex-end;
     margin-top: 5px;
-    width: 50%;
+    width: 45%;
     padding: 5px 0;
     border-radius: 5px;
     border: 1px solid #ced4da;
     background-color: #86b7fe;
     color: white;
+    cursor: pointer;
 }

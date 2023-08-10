@@ -6,6 +6,7 @@ import { items } from './data/items';
 import { filterListByMonth, getCurrentMonth } from './helpers/dateFilter';
 import { categories } from './data/categories';
 import InputArea from './components/InputArea/InputArea';
+import TableArea from './components/TableArea/TableArea';
 
 function App() {
   const [list, setList] = useState(items);
@@ -39,10 +40,27 @@ function App() {
   }
 
   const handleAddItem = (item: Item) => {
+    const newItem: Item = {
+      ...item,
+      id: Date.now(),
+    }
+
     let newList = [...list];
-    newList.push(item);
+    newList.push(newItem);
     setList(newList);
   }
+
+  const handleEditItem = (editedItem: Item) => {
+    const updatedList = list.map((item) =>
+        item.id === editedItem.id ? editedItem : item
+    );
+    setList(updatedList);
+  };
+
+  const handleDeleteItem = (deletedItem: Item) => {
+      const updatedList = list.filter((item) => item.id !== deletedItem.id);
+      setList(updatedList);
+  };
 
   return (
     <div className="App">
@@ -57,7 +75,11 @@ function App() {
         <InputArea onAdd={handleAddItem} />
       </div>
       <div>
-        TableArea
+        <TableArea 
+          list={filteredList}
+          onEdit={handleEditItem}
+          onDelete={handleDeleteItem}
+        />
       </div>
     </div>
   );

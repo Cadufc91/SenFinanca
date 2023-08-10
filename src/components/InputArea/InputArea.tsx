@@ -12,7 +12,7 @@ function InputArea({ onAdd }: Props) {
     const [dateField, setDateField] = useState('');
     const [categoryField, setCategoryField] = useState('');
     const [descriptionField, setDescriptionField] = useState('');
-    const [valueField, setValueField] = useState(0);
+    const [valueField, setValueField] = useState<number>(0);
 
     let categoryKeys: string[] = Object.keys(categories);
 
@@ -35,11 +35,13 @@ function InputArea({ onAdd }: Props) {
         if(errors.length > 0) {
             alert(errors.join("\n"));
         } else {
+            const formattedValue = parseFloat(valueField.toFixed(2));
             onAdd({
+                id: 0,
                 date: newDateAdjusted(dateField),
                 category: categoryField,
-                title: descriptionField,
-                value: valueField
+                description: descriptionField,
+                value: formattedValue,
             });
             clearFields();
         }
@@ -58,7 +60,7 @@ function InputArea({ onAdd }: Props) {
             <label htmlFor="date">Data</label>
             <input 
                 type="date"
-                value={categoryField}
+                value={dateField}
                 onChange={e => setDateField(e.target.value)}
              />
         </div>
@@ -67,6 +69,8 @@ function InputArea({ onAdd }: Props) {
             <select 
                 name="category" 
                 id="category"
+                value={categoryField}
+                onChange={e => setCategoryField(e.target.value)}
             >
                 <>
                     <option></option>
@@ -86,7 +90,7 @@ function InputArea({ onAdd }: Props) {
         </div>
         <div className={styles.itemContainer}>
             <label htmlFor="value">Valor</label>
-            <input type="text" 
+            <input type="number" 
                 value={valueField}
                 onChange={e => setValueField(parseFloat(e.target.value))}
             />

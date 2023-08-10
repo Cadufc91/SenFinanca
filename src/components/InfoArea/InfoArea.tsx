@@ -26,6 +26,10 @@ const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props) => {
     onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() +1}`);
   }
 
+  const formattedIncome = income.toFixed(2);
+  const formattedExpense = expense.toFixed(2);
+  const balance = (income - expense).toFixed(2);
+
   return (
     <div className={styles.infoAreaContainer}>
         <div className={styles.monthControl}>
@@ -38,12 +42,12 @@ const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props) => {
             </button>
         </div>
         <div className={styles.balanceControl}>
-            <ResumeItem title='Receitas' value={income}/>
-            <ResumeItem title='Despesa' value={expense} />
+            <ResumeItem title='Receitas' value={parseFloat(formattedIncome)}/>
+            <ResumeItem title='Despesa' value={parseFloat(formattedExpense)} />
             <ResumeItem
               title='Saldo'
-              value={income - expense}
-              color={(income - expense) < 0 ? 'red' : 'green'}
+              value={parseFloat(balance)}
+              color={parseFloat(balance) < 0 ? 'red' : 'green'}
             />
         </div>
     </div>

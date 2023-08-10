@@ -1,0 +1,47 @@
+.tableItems {
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+    border-bottom: 1px solid #ced4da;
+    padding: 5px;
+}
+
+.tableItems td {
+    width: 25%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.tableItems >:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.modifyButton {
+    background-color: #ffa600;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    height: 80%;
+}
+
+.deleteButton {
+    background-color: #dd0404;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    height: 80%;
+}
