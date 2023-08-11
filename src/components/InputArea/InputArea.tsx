@@ -35,13 +35,12 @@ function InputArea({ onAdd }: Props) {
         if(errors.length > 0) {
             alert(errors.join("\n"));
         } else {
-            const formattedValue = parseFloat(valueField.toFixed(2));
             onAdd({
                 id: 0,
                 date: newDateAdjusted(dateField),
                 category: categoryField,
                 description: descriptionField,
-                value: formattedValue,
+                value: valueField
             });
             clearFields();
         }
@@ -90,7 +89,7 @@ function InputArea({ onAdd }: Props) {
         </div>
         <div className={styles.itemContainer}>
             <label htmlFor="value">Valor</label>
-            <input type="number" 
+            <input type="text" 
                 value={valueField}
                 onChange={e => setValueField(parseFloat(e.target.value))}
             />

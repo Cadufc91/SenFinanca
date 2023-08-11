@@ -3,7 +3,7 @@ import { Item } from '../../types/item';
 import { formatDate } from '../../helpers/dateFilter';
 import { categories } from '../../data/categories';
 import styles from './TableItem.module.css';
-import { FaPen, FaTrash } from 'react-icons/fa';
+import { FaSave, FaPen, FaTrash } from 'react-icons/fa';
 
 type Props = {
     item: Item
@@ -95,8 +95,8 @@ const TableItem = ({ item, onEdit, onDelete }: Props) => {
             </td>
             <td>
                 {isEditing ? (
-                    <button className={styles.modifyButton} onClick={handleSaveItem}>
-                        Salvar
+                    <button className={styles.saveButton} onClick={handleSaveItem}>
+                        <FaSave /> Salvar
                     </button>
                 ) : (
                     <button className={styles.modifyButton} onClick={handleEditItem}>

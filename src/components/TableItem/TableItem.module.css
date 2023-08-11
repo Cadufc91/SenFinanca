@@ -21,6 +21,19 @@
     gap: 5px;
 }
 
+.saveButton {
+    background-color: #5abb5a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    height: 80%;
+}
+
 .modifyButton {
     background-color: #ffa600;
     border: none;
